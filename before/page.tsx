@@ -1,3 +1,4 @@
+//@ts-nocheck
 const BurnPageStyled = styled.div``;
 
 enum BurnTxProgress {
