@@ -6,10 +6,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' className={GeistSans.className}>
+    <html lang='en'>
       <body>
         <Provider>{children}</Provider>
-        <Analytics />
       </body>
     </html>
   )
