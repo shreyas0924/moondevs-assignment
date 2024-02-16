@@ -1,7 +1,12 @@
 //@ts-nocheck
-import React from 'react'
-
+import React, { useContext } from 'react'
+import { Context } from '../context/ContextProvider'
+import useBurnAmount from '../hooks/useBurnAmount'
 const BurnButtonBar = () => {
+  const { burnAmount, onChangeBurnAmount, txButton, burnTxHash } =
+    useContext(Context)
+  const { executeBurn } = useBurnAmount()
+  const { walletChain } = useWallet()
   return (
     <div>
       <p className='box_subheader'>Burn your App</p>

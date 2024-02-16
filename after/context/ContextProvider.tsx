@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState } from 'react'
 const Context = createContext()
 
 const Provider = ({ children }) => {
+  const { supplies } = useWallet()
   const [burnAmount, setBurnAmount] = useState('')
   const [burnTransactions, setBurnTransactions] = useState<any[]>([])
   const [isOldToken, setIsOldToken] = useState(false)
@@ -14,6 +15,14 @@ const Provider = ({ children }) => {
   const [approveTxHash, setApproveTxHash] = useState<string | null>(null)
   const [burnTxHash, setBurnTxHash] = useState<string | null>(null)
 
+  const [coinData, setCoinData] = useState<any>({})
+
+  const tokenAddress = fetchAddressForChain(
+    suppliesChain?.id,
+    isOldToken ? 'oldToken' : 'newToken'
+  )
+
+  const statsSupplies = supplies
   const onChangeBurnAmount = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value == '') setBurnAmount('')
     if (isNaN(parseFloat(e.target.value))) return
@@ -53,6 +62,10 @@ const Provider = ({ children }) => {
         setApproveTxHash,
         burnTxHash,
         setBurnTxHash,
+        coinData,
+        setCoinData,
+        tokenAddress,
+        statsSupplies,
         onChangeBurnAmount,
         refetchTransactions,
       }}

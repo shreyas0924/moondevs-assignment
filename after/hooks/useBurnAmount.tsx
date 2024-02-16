@@ -1,8 +1,7 @@
 //@ts-nocheck
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Context } from '../context/ContextProvider'
 const useBurnAmount = () => {
-  const { burnAmount } = useContext(Context)
   const { isWalletConnected, walletChain, openConnectModal } = useWallet()
   const {
     burnAmount,
