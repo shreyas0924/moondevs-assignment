@@ -22,3 +22,6 @@ This repository contains code for the Moondevs React Assignment. The goal of thi
    - While this assignment uses a simple Context API, more complex state management solutions like Redux or Zustand could be integrated.
 
 
+*Finished this assignment under 2 hours*
+
+
